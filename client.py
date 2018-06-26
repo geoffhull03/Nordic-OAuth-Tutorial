@@ -64,9 +64,9 @@ class Client:
             return
 
         revoke_request = urllib2.Request(self.config['revocation_endpoint'])
-        data = {
-            # Assignment 3
-            # Add the data to the revocation request
+        data = { 'client_id': self.config['client_id'],
+                'client_secret': self.config['client_secret'],
+                'token': token
         }
         urllib2.urlopen(revoke_request, urllib.urlencode(data), context=self.ctx)
 
