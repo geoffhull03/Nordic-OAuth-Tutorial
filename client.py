@@ -76,9 +76,11 @@ class Client:
         :param refresh_token:
         :return: the new access token
         """
-        data = {
-            # Assignment 2
-            # Add the data to the refresh request
+        data = { 'client_id': self.config['client_id'],
+                'client_secret': self.config['client_secret'],
+                'refresh_token': refresh_token,
+                'grant_type': "refresh_token"
+
         }
         token_response = urllib2.urlopen(self.config['token_endpoint'], urllib.urlencode(data), context=self.ctx)
         return json.loads(token_response.read())
