@@ -103,10 +103,9 @@ class Client:
         :return the json response containing the tokens
         """
 
-        # Assignment 1
-        # Fill in the the missing data for the token request
-
         data = {'client_id': self.config['client_id'],
+                'client_secret': self.config['client_secret'],
+                'code': code,
                 'redirect_uri': self.config['redirect_uri'],
                 'grant_type': 'authorization_code'}
 
